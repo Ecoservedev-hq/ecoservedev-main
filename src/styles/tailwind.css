@@ -3,21 +3,21 @@
 @tailwind utilities;
 
 :root {
-  --background: #F7F5F0;
-  --foreground: #111111;
-  --primary: #1B3A2D;
+  --background: #F5F7FA;
+  --foreground: #0A1628;
+  --primary: #0A2463;
   --primary-foreground: #FFFFFF;
-  --secondary: #2D5A3D;
+  --secondary: #1B3A8C;
   --secondary-foreground: #FFFFFF;
-  --accent: #4CAF7D;
+  --accent: #2E86C1;
   --accent-foreground: #FFFFFF;
-  --muted: #E8E4DC;
-  --muted-foreground: #6B6B6B;
+  --muted: #E8EDF5;
+  --muted-foreground: #5A6A7E;
   --card: #FFFFFF;
-  --card-foreground: #111111;
-  --border: #D8D3C8;
-  --input: #D8D3C8;
-  --ring: #4CAF7D;
+  --card-foreground: #0A1628;
+  --border: #D0D9E8;
+  --input: #D0D9E8;
+  --ring: #2E86C1;
   --radius: 0.75rem;
   --font-sans: var(--font-dm-sans), sans-serif;
   --font-display: var(--font-plus-jakarta-sans), sans-serif;
@@ -151,7 +151,7 @@
   }
 
   .btn-white:hover {
-    background-color: #e8f5e9;
+    background-color: #e8f0fb;
     transform: translateY(-1px);
   }
 
@@ -178,7 +178,7 @@
   }
 
   .card-program:hover {
-    box-shadow: 0 20px 40px -12px rgba(27, 58, 45, 0.15);
+    box-shadow: 0 20px 40px -12px rgba(10, 36, 99, 0.15);
   }
 
   .stat-card {
@@ -193,7 +193,7 @@
   }
 
   .stat-card:hover {
-    box-shadow: 0 12px 32px -8px rgba(27, 58, 45, 0.12);
+    box-shadow: 0 12px 32px -8px rgba(10, 36, 99, 0.12);
     transform: translateY(-2px);
   }
 
@@ -209,7 +209,7 @@
   }
 
   .stat-card-dark:hover {
-    box-shadow: 0 12px 32px -8px rgba(27, 58, 45, 0.25);
+    box-shadow: 0 12px 32px -8px rgba(10, 36, 99, 0.25);
     transform: translateY(-2px);
   }
 
@@ -225,7 +225,7 @@
   }
 
   .stat-card-accent:hover {
-    box-shadow: 0 12px 32px -8px rgba(76, 175, 125, 0.3);
+    box-shadow: 0 12px 32px -8px rgba(46, 134, 193, 0.3);
     transform: translateY(-2px);
   }
 

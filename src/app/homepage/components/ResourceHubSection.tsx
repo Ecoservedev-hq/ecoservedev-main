@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Link from 'next/link';
 
 import Icon from '@/components/ui/AppIcon';
 
@@ -41,10 +42,19 @@ export default function ResourceHubSection() {
               Insights, Research & Resources
             </h2>
           </div>
-          <p className="text-muted-foreground text-base max-w-sm leading-relaxed">
-            Explore our latest blogs, research, and knowledge resources on sustainability, CSR,
-            technology for development, and ecosystem restoration.
-          </p>
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+            <p className="text-muted-foreground text-base max-w-sm leading-relaxed">
+              Explore our latest blogs, research, and knowledge resources on sustainability, CSR,
+              technology for development, and ecosystem restoration.
+            </p>
+            <Link
+              href="/insights"
+              className="inline-flex items-center gap-2 bg-primary text-white px-5 py-2.5 rounded-full text-sm font-display font-700 hover:bg-secondary transition-colors whitespace-nowrap flex-shrink-0"
+            >
+              View All
+              <Icon name="ArrowUpRightIcon" size={14} variant="outline" />
+            </Link>
+          </div>
         </div>
 
         <div className="grid md:grid-cols-3 gap-6">

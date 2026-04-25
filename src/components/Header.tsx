@@ -1,22 +1,63 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import AppLogo from '@/components/ui/AppLogo';
 import Icon from '@/components/ui/AppIcon';
 
-const navLinks = [
+interface MegaItem {
+  label: string;
+  href: string;
+  description: string;
+  icon: string;
+}
+
+interface NavLink {
+  label: string;
+  href: string;
+  mega?: MegaItem[];
+}
+
+const navLinks: NavLink[] = [
   { label: 'Home', href: '/homepage' },
   { label: 'About', href: '/about' },
-  { label: 'Work & Innovation', href: '/homepage#work' },
-  { label: 'Impact', href: '/homepage#impact' },
+  {
+    label: 'Our Work',
+    href: '/work',
+    mega: [
+      { label: 'Work & Innovation', href: '/work', description: 'Scalable solutions for complex global challenges', icon: 'LightBulbIcon' },
+      { label: 'Climate & Environment', href: '/work#focus-areas', description: 'Ecosystem restoration and climate resilience', icon: 'GlobeAltIcon' },
+      { label: 'Inclusive Development', href: '/work#focus-areas', description: 'Livelihoods, equity, and community resilience', icon: 'UserGroupIcon' },
+      { label: 'Technology for Good', href: '/work#focus-areas', description: 'AI, blockchain, and digital innovation', icon: 'CpuChipIcon' },
+    ],
+  },
+  {
+    label: 'Impact',
+    href: '/impact',
+    mega: [
+      { label: 'Impact & SDGs', href: '/impact', description: 'Measurable outcomes across communities', icon: 'ChartBarIcon' },
+      { label: 'Impact Data', href: '/impact#counters', description: 'Verified metrics and data frameworks', icon: 'DocumentChartBarIcon' },
+      { label: 'SDG Alignment', href: '/impact#sdgs', description: 'Contributing to 8 UN Sustainable Development Goals', icon: 'GlobeAmericasIcon' },
+    ],
+  },
+  {
+    label: 'Insights',
+    href: '/insights',
+    mega: [
+      { label: 'All Insights', href: '/insights', description: 'Research, blogs, and knowledge resources', icon: 'DocumentTextIcon' },
+      { label: 'Research', href: '/insights', description: 'Data-driven research and analysis', icon: 'BeakerIcon' },
+      { label: 'CSR Guides', href: '/insights', description: 'Practical guides for corporate sustainability', icon: 'BriefcaseIcon' },
+    ],
+  },
   { label: 'Partnerships', href: '/partnerships' },
 ];
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [activeMega, setActiveMega] = useState<string | null>(null);
+  const megaTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
   const pathname = usePathname();
 
   useEffect(() => {
@@ -34,20 +75,29 @@ export default function Header() {
     return () => { document.body.style.overflow = ''; };
   }, [menuOpen]);
 
-  const isActive = (href: string) => pathname === href;
+  const isActive = (href: string) => pathname === href || pathname.startsWith(href + '/');
+
+  const handleMegaEnter = (label: string) => {
+    if (megaTimeout.current) clearTimeout(megaTimeout.current);
+    setActiveMega(label);
+  };
+
+  const handleMegaLeave = () => {
+    megaTimeout.current = setTimeout(() => setActiveMega(null), 120);
+  };
 
   return (
     <>
       <header
         className={`fixed top-0 w-full z-50 transition-all duration-300 ${
           scrolled
-            ? 'bg-white/95 backdrop-blur-md border-b border-border shadow-sm'
+            ? 'bg-white/97 backdrop-blur-md border-b border-border shadow-sm'
             : 'bg-transparent'
         }`}
       >
         <nav className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
           {/* Logo */}
-          <Link href="/homepage" className="flex items-center gap-2.5 group">
+          <Link href="/homepage" className="flex items-center gap-2.5 group flex-shrink-0">
             <AppLogo
               size={36}
               className="transition-transform duration-200 group-hover:scale-105"
@@ -62,22 +112,67 @@ export default function Header() {
           </Link>
 
           {/* Desktop Nav */}
-          <div className="hidden md:flex items-center gap-7">
+          <div className="hidden md:flex items-center gap-1">
             {navLinks.map((link) => (
-              <Link
+              <div
                 key={link.href}
-                href={link.href}
-                className={`text-sm font-medium font-display transition-colors duration-200 ${
-                  isActive(link.href)
-                    ? scrolled
-                      ? 'text-accent' :'text-accent'
-                    : scrolled
-                    ? 'text-foreground hover:text-accent'
-                    : 'text-white/90 hover:text-white'
-                }`}
+                className="relative"
+                onMouseEnter={() => link.mega ? handleMegaEnter(link.label) : undefined}
+                onMouseLeave={link.mega ? handleMegaLeave : undefined}
               >
-                {link.label}
-              </Link>
+                <Link
+                  href={link.href}
+                  className={`flex items-center gap-1 px-3 py-2 rounded-lg text-sm font-medium font-display transition-colors duration-200 ${
+                    isActive(link.href)
+                      ? 'text-accent'
+                      : scrolled
+                      ? 'text-foreground hover:text-accent hover:bg-muted'
+                      : 'text-white/90 hover:text-white hover:bg-white/10'
+                  }`}
+                >
+                  {link.label}
+                  {link.mega && (
+                    <Icon
+                      name="ChevronDownIcon"
+                      size={12}
+                      variant="outline"
+                      className={`transition-transform duration-200 ${activeMega === link.label ? 'rotate-180' : ''}`}
+                    />
+                  )}
+                </Link>
+
+                {/* Mega Menu Dropdown */}
+                {link.mega && activeMega === link.label && (
+                  <div
+                    className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-72 bg-white border border-border rounded-2xl shadow-xl overflow-hidden z-50"
+                    onMouseEnter={() => handleMegaEnter(link.label)}
+                    onMouseLeave={handleMegaLeave}
+                  >
+                    <div className="p-2">
+                      {link.mega.map((item) => (
+                        <Link
+                          key={item.href + item.label}
+                          href={item.href}
+                          className="flex items-start gap-3 p-3 rounded-xl hover:bg-muted transition-colors group"
+                          onClick={() => setActiveMega(null)}
+                        >
+                          <div className="w-8 h-8 rounded-lg bg-primary/8 flex items-center justify-center flex-shrink-0 group-hover:bg-primary/15 transition-colors mt-0.5">
+                            <Icon name={item.icon as never} size={15} variant="outline" className="text-primary" />
+                          </div>
+                          <div>
+                            <div className="font-display font-700 text-sm text-foreground group-hover:text-primary transition-colors">
+                              {item.label}
+                            </div>
+                            <div className="text-xs text-muted-foreground mt-0.5 leading-relaxed">
+                              {item.description}
+                            </div>
+                          </div>
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
             ))}
           </div>
 
@@ -111,21 +206,38 @@ export default function Header() {
       {/* Mobile Menu Overlay */}
       {menuOpen && (
         <div
-          className="fixed inset-0 z-40 bg-primary/95 backdrop-blur-md flex flex-col pt-20 px-6 pb-8 md:hidden"
+          className="fixed inset-0 z-40 bg-primary/97 backdrop-blur-md flex flex-col pt-20 px-6 pb-8 md:hidden overflow-y-auto"
           onClick={() => setMenuOpen(false)}
         >
           <div className="flex flex-col gap-1" onClick={(e) => e.stopPropagation()}>
             {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                onClick={() => setMenuOpen(false)}
-                className={`py-4 text-lg font-display font-600 border-b border-white/10 transition-colors ${
-                  isActive(link.href) ? 'text-accent' : 'text-white hover:text-accent'
-                }`}
-              >
-                {link.label}
-              </Link>
+              <div key={link.href}>
+                <Link
+                  href={link.href}
+                  onClick={() => setMenuOpen(false)}
+                  className={`flex items-center justify-between py-4 text-lg font-display font-600 border-b border-white/10 transition-colors ${
+                    isActive(link.href) ? 'text-accent' : 'text-white hover:text-accent'
+                  }`}
+                >
+                  {link.label}
+                  {link.mega && <Icon name="ChevronRightIcon" size={16} variant="outline" className="text-white/40" />}
+                </Link>
+                {link.mega && (
+                  <div className="pl-4 pb-2">
+                    {link.mega.map((item) => (
+                      <Link
+                        key={item.href + item.label}
+                        href={item.href}
+                        onClick={() => setMenuOpen(false)}
+                        className="flex items-center gap-2 py-2.5 text-sm text-white/60 hover:text-white/90 transition-colors font-sans"
+                      >
+                        <Icon name={item.icon as never} size={14} variant="outline" className="text-accent/60" />
+                        {item.label}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
             ))}
             <div className="mt-6">
               <Link

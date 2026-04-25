@@ -66,7 +66,7 @@ export default function FocusAreasSection() {
               Operating across interconnected domains to address complex sustainability challenges.
             </p>
             <Link
-              href="/homepage#work"
+              href="/work"
               className="inline-flex items-center gap-2 bg-primary text-white px-5 py-2.5 rounded-full text-sm font-display font-700 hover:bg-secondary transition-colors whitespace-nowrap flex-shrink-0">
 
               Explore Work
