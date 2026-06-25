@@ -21,7 +21,7 @@ export default function AboutHeroSection() {
   }, []);
 
   return (
-    <section className="relative w-full min-h-screen overflow-hidden bg-[#060E1F]">
+    <section className="relative w-full min-h-[100vh] overflow-hidden bg-primary">
       {/* Animated geometric grid background */}
       <div
         ref={gridRef}
@@ -52,15 +52,9 @@ export default function AboutHeroSection() {
       <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] rounded-full bg-[#2E86C1]/15 blur-[100px] pointer-events-none" />
 
       {/* Main content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 flex flex-col justify-center min-h-screen pt-32 pb-32">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 flex flex-col justify-center h-full pt-32 pb-80 sm:pb-64 md:pb-40">
         <div className="max-w-4xl">
-          {/* Eyebrow label */}
-          <div className="flex items-center gap-3 mb-8">
-            <div className="w-8 h-px bg-accent" />
-            <span className="text-accent text-xs font-display font-600 uppercase tracking-[0.2em]">
-              Section 8 Non-Profit · Est. January 2025
-            </span>
-          </div>
+
 
           {/* Main headline — editorial style */}
           <h1 className="font-display font-700 text-5xl md:text-7xl lg:text-8xl leading-[1.05] text-white mb-8">
@@ -81,17 +75,21 @@ export default function AboutHeroSection() {
             India and beyond.
           </p>
 
-          <div className="flex flex-wrap gap-4">
-            <Link href="/partnerships" className="btn-white">
+          <div className="flex items-center gap-3 sm:gap-4">
+            <Link 
+              href="/partnerships" 
+              className="inline-flex items-center gap-1.5 sm:gap-2 px-7 py-3 rounded-full text-sm font-700 font-display bg-white text-primary hover:bg-white/90 transition-all duration-300 whitespace-nowrap"
+            >
               Partner With Us
-              <Icon name="ArrowUpRightIcon" size={16} variant="outline" />
+              <Icon name="ArrowUpRightIcon" size={14} variant="outline" className="hidden sm:block" />
             </Link>
+            <div className="w-px h-6 bg-white/30 hidden sm:block" />
             <Link
               href="#leadership"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-sm font-700 font-display text-white/80 border border-white/20 hover:border-white/50 hover:text-white transition-all duration-300"
+              className="inline-flex items-center gap-1.5 sm:gap-2 px-7 py-3 rounded-full text-sm font-700 font-display text-white/80 border border-white/20 hover:border-white/50 hover:text-white transition-all duration-300 whitespace-nowrap"
             >
               Meet the Team
-              <Icon name="ArrowDownIcon" size={16} variant="outline" />
+              <Icon name="ArrowDownIcon" size={14} variant="outline" className="hidden sm:block" />
             </Link>
           </div>
         </div>
@@ -105,7 +103,7 @@ export default function AboutHeroSection() {
               { value: 'Jan 2025', label: 'Founded' },
               { value: 'Section 8', label: 'Non-Profit Status' },
               { value: 'Pan India', label: 'Operations' },
-              { value: 'UN Affiliated', label: 'Global Platforms' },
+              { value: 'Globally Recognised', label: 'International Platforms' },
             ].map((item) => (
               <div key={item.label} className="px-6 py-5 text-center">
                 <div className="font-display font-700 text-white text-lg">{item.value}</div>

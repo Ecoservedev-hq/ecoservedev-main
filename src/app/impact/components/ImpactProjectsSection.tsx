@@ -72,9 +72,9 @@ export default function ImpactProjectsSection() {
         </div>
 
         {/* Table-style layout */}
-        <div className="overflow-x-auto">
-          <table className="w-full">
-            <thead>
+        <div className="w-full">
+          <table className="w-full block md:table">
+            <thead className="hidden md:table-header-group">
               <tr className="border-b border-border">
                 <th className="text-left py-3 pr-6 text-xs font-display font-600 text-muted-foreground uppercase tracking-widest">Project</th>
                 <th className="text-left py-3 pr-6 text-xs font-display font-600 text-muted-foreground uppercase tracking-widest">Key Metrics</th>
@@ -82,16 +82,18 @@ export default function ImpactProjectsSection() {
                 <th className="text-left py-3 text-xs font-display font-600 text-muted-foreground uppercase tracking-widest">Status</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody className="block md:table-row-group">
               {projects?.map((project, i) => (
-                <tr key={i} className="border-b border-border group hover:bg-muted/30 transition-colors">
-                  <td className="py-5 pr-6">
-                    <span className="font-display font-700 text-base text-foreground group-hover:text-primary transition-colors">
+                <tr key={i} className="block md:table-row border-b border-border group hover:bg-muted/30 transition-colors py-6 md:py-0">
+                  <td className="block md:table-cell py-2 md:py-5 pr-6">
+                    <div className="md:hidden text-xs font-display font-600 text-muted-foreground uppercase tracking-widest mb-1 mt-2">Project</div>
+                    <span className="font-display font-700 text-lg md:text-base text-foreground group-hover:text-primary transition-colors">
                       {project?.name}
                     </span>
                   </td>
-                  <td className="py-5 pr-6">
-                    <div className="flex gap-6">
+                  <td className="block md:table-cell py-2 md:py-5 pr-6">
+                    <div className="md:hidden text-xs font-display font-600 text-muted-foreground uppercase tracking-widest mb-2 mt-4">Key Metrics</div>
+                    <div className="flex flex-wrap gap-4 md:gap-6">
                       {project?.metrics?.map((m) => (
                         <div key={m?.label}>
                           <div className="font-display font-700 text-lg text-primary">{m?.value}</div>
@@ -100,8 +102,9 @@ export default function ImpactProjectsSection() {
                       ))}
                     </div>
                   </td>
-                  <td className="py-5 pr-6">
-                    <div className="flex gap-1.5">
+                  <td className="block md:table-cell py-2 md:py-5 pr-6">
+                    <div className="md:hidden text-xs font-display font-600 text-muted-foreground uppercase tracking-widest mb-2 mt-4">SDGs</div>
+                    <div className="flex flex-wrap gap-1.5">
                       {project?.sdgs?.map((sdg) => (
                         <span key={sdg} className="w-7 h-7 rounded-lg bg-primary/10 text-primary text-xs font-display font-700 flex items-center justify-center">
                           {sdg}
@@ -109,7 +112,8 @@ export default function ImpactProjectsSection() {
                       ))}
                     </div>
                   </td>
-                  <td className="py-5">
+                  <td className="block md:table-cell py-2 md:py-5">
+                    <div className="md:hidden text-xs font-display font-600 text-muted-foreground uppercase tracking-widest mb-2 mt-4">Status</div>
                     <span className="inline-flex items-center gap-1.5 bg-accent/10 text-accent text-xs font-display font-600 px-3 py-1 rounded-full">
                       <span className="w-1.5 h-1.5 rounded-full bg-accent" />
                       {project?.status}

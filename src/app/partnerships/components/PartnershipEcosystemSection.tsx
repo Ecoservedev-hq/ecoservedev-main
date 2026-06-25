@@ -169,6 +169,8 @@ export default function PartnershipEcosystemSection() {
             </div>
           ))}
         </div>
+
+
       </div>
     </section>
   );

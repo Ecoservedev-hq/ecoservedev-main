@@ -70,7 +70,7 @@ function AnimatedValue({ stat, active }: { stat: Stat; active: boolean }) {
 }
 
 function StatCard({ stat, active }: { stat: Stat; active: boolean }) {
-  const baseClasses = 'rounded-3xl p-6 flex flex-col justify-between h-full transition-all duration-300 hover:-translate-y-1';
+  const baseClasses = 'rounded-3xl p-5 md:p-6 flex flex-col justify-between h-full transition-all duration-300 hover:-translate-y-1';
   const variantClasses: Record<string, string> = {
     dark: `${baseClasses} bg-primary text-white`,
     light: `${baseClasses} bg-card border border-border text-foreground`,
@@ -84,21 +84,21 @@ function StatCard({ stat, active }: { stat: Stat; active: boolean }) {
   const subColor = stat.variant === 'dark' || stat.variant === 'accent' ? 'text-white/50' : 'text-muted-foreground';
 
   return (
-    <div className={classes} style={{ minHeight: stat.rowSpan === 2 ? '280px' : '130px' }}>
-      <div className="flex justify-between items-start mb-4">
-        <Icon name={stat.icon as never} size={20} variant="outline" className={iconColor} />
+    <div className={classes} style={{ minHeight: stat.rowSpan === 2 ? '220px' : '110px' }}>
+      <div className="flex justify-between items-start mb-3">
+        <Icon name={stat.icon as never} size={18} variant="outline" className={iconColor} />
         {stat.rowSpan === 2 && (
           <span className={`text-[10px] font-display font-600 uppercase tracking-widest ${subColor}`}>Flagship</span>
         )}
       </div>
       <div>
-        <div className={`font-display font-700 mb-1 ${valueColor} ${
-          stat.colSpan === 2 ? 'text-5xl md:text-6xl' : stat.rowSpan === 2 ? 'text-5xl' : 'text-3xl md:text-4xl'
+        <div className={`font-display font-700 mb-1 leading-tight ${valueColor} ${
+          stat.colSpan === 2 ? 'text-4xl md:text-5xl' : stat.rowSpan === 2 ? 'text-4xl' : 'text-2xl md:text-3xl'
         }`}>
           <AnimatedValue stat={stat} active={active} />
         </div>
-        <div className={`font-display font-600 text-sm mb-1 ${labelColor}`}>{stat.label}</div>
-        <div className={`text-xs font-sans ${subColor}`}>{stat.sublabel}</div>
+        <div className={`font-display font-600 text-xs md:text-sm mb-0.5 ${labelColor}`}>{stat.label}</div>
+        <div className={`text-[11px] md:text-xs font-sans leading-tight ${subColor}`}>{stat.sublabel}</div>
       </div>
     </div>
   );

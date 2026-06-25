@@ -31,33 +31,8 @@ export default function VisionMissionSection() {
             <h2
               className={`font-display font-700 text-4xl md:text-5xl lg:text-6xl text-foreground leading-[1.1] transition-all duration-700 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
             >
-              A new generation of development professionals
+              Born from direct, on-ground experience with complex development and sustainability challenges.
             </h2>
-
-            {/* Decorative element */}
-            <div className="mt-10 relative">
-              <div className="w-full h-px bg-border" />
-              <div className="absolute left-0 top-0 w-24 h-px bg-accent" />
-            </div>
-
-            {/* Key facts */}
-            <div className="mt-10 space-y-4">
-              {[
-                { label: 'Headquarters', value: 'Ranchi, Jharkhand' },
-                { label: 'Operations', value: 'Pan India' },
-                { label: 'Established', value: 'January 2025' },
-                { label: 'Affiliation', value: 'UN & Global Platforms' },
-              ]?.map((fact, i) => (
-                <div
-                  key={fact?.label}
-                  className={`flex items-center justify-between py-3 border-b border-border transition-all duration-500 ${visible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-4'}`}
-                  style={{ transitionDelay: `${i * 80}ms` }}
-                >
-                  <span className="text-muted-foreground text-sm font-sans">{fact?.label}</span>
-                  <span className="font-display font-600 text-foreground text-sm">{fact?.value}</span>
-                </div>
-              ))}
-            </div>
           </div>
 
           {/* Right: editorial text */}
@@ -92,7 +67,7 @@ export default function VisionMissionSection() {
         </div>
       </div>
       {/* Vision & Mission — dark editorial panel */}
-      <div className="bg-[#060E1F] py-24">
+      <div className="bg-primary py-24">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <div className="flex items-center gap-3 mb-12">
             <div className="w-8 h-px bg-accent" />

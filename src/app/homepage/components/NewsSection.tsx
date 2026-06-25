@@ -14,7 +14,7 @@ const perspectives = [
   title: 'Breakpoint 2025, Abu Dhabi — Blockchain, Real-World Assets & Sustainability',
   description:
   'Kumar Shivam delivered a session on blockchain, real-world assets, and sustainability at Breakpoint 2025, Abu Dhabi — exploring how decentralised infrastructure can drive verifiable environmental impact.',
-  image: "https://img.rocket.new/generatedImages/rocket_gen_img_199e3d190-1772176810131.png",
+  image: "/assets/images/WhatsApp Unknown 2026-06-25 at 11.35.14 PM/WhatsApp Image 2026-06-25 at 11.13.04 PM.jpeg",
   alt: 'Large conference hall with dramatic stage lighting, dark auditorium with rows of attendees, deep shadows, moody atmospheric light'
 }];
 
@@ -25,23 +25,28 @@ const news = [
   date: 'March 12, 2026',
   title: 'Impact AI Summit 2026, New Delhi — Strategic Partnership for Digital Inclusion',
   badge: 'Partnership',
-  badgeDark: true
+  badgeDark: true,
+  image: "/assets/images/WhatsApp Unknown 2026-06-25 at 11.35.14 PM/WhatsApp Image 2026-06-25 at 11.12.59.jpeg",
+  alt: 'Conference hall with audience'
 },
 {
   id: 2,
   date: 'February 8, 2026',
   title: 'Gender Equality Summit — EcoServeDev as Ecosystem Restoration Partner',
   badge: 'Summit',
-  badgeDark: false
+  badgeDark: false,
+  image: "/assets/images/WhatsApp Unknown 2026-06-25 at 11.35.14 PM/WhatsApp Image 2026-06-25 at 11.13.00.jpeg",
+  alt: 'Diverse panel discussion'
 },
 {
   id: 3,
   date: 'January 20, 2026',
   title: 'UN Biodiversity Credit Alliance: EcoServeDev joins global restoration network',
   badge: 'UN Affiliation',
-  badgeDark: false
+  badgeDark: false,
+  image: "/assets/images/WhatsApp Unknown 2026-06-25 at 11.35.14 PM/WhatsApp Image 2026-06-25 at 11.13.01.jpeg",
+  alt: 'Green forest from above'
 }];
-
 
 export default function NewsSection() {
   return (
@@ -130,51 +135,60 @@ export default function NewsSection() {
 
             <div className="space-y-6">
               {news?.map((item) =>
-              <article key={item?.id} className="group cursor-pointer">
-                  <h3 className="font-display font-700 text-lg text-foreground leading-tight mb-2 group-hover:text-accent transition-colors">
-                    {item?.title}
-                  </h3>
-                  <div className="flex items-center gap-2 text-xs text-muted-foreground mb-3 font-sans">
-                    <Icon name="CalendarIcon" size={12} variant="outline" />
-                    {item?.date}
-                  </div>
-                  <span
-                  className={`text-[10px] font-display font-700 px-2.5 py-1 rounded-full ${
-                  item?.badgeDark ?
-                  'bg-primary text-white' : 'bg-card border border-border text-muted-foreground'}`
-                  }>
+              <article key={item?.id} className="group cursor-pointer flex gap-4">
+                  {item.image && (
+                    <div className="w-24 h-24 flex-shrink-0 relative rounded-xl overflow-hidden">
+                      <AppImage src={item.image} alt={item.alt || ''} fill className="object-cover transition-transform duration-500 group-hover:scale-105" sizes="100px" />
+                    </div>
+                  )}
+                  <div className="flex-1">
+                    <h3 className="font-display font-700 text-lg text-foreground leading-tight mb-2 group-hover:text-accent transition-colors">
+                      {item?.title}
+                    </h3>
+                    <div className="flex items-center gap-2 text-xs text-muted-foreground mb-3 font-sans">
+                      <Icon name="CalendarIcon" size={12} variant="outline" />
+                      {item?.date}
+                    </div>
+                    <span
+                    className={`text-[10px] font-display font-700 px-2.5 py-1 rounded-full ${
+                    item?.badgeDark ?
+                    'bg-primary text-white' : 'bg-card border border-border text-muted-foreground'}`
+                    }>
 
-                    {item?.badge}
-                  </span>
-                  <div className="border-b border-border mt-5" />
+                      {item?.badge}
+                    </span>
+                  </div>
                 </article>
               )}
+              <div className="border-b border-border mt-5" />
             </div>
 
-            {/* Partner for Impact card */}
+            {/* Social Media Feeds Embed */}
             <div className="mt-8 bg-muted rounded-2xl p-6 border border-border">
-              <span className="text-xs font-display font-600 text-accent uppercase tracking-widest mb-2 block">
-                Get Involved
+              <span className="text-xs font-display font-600 text-accent uppercase tracking-widest mb-4 block">
+                Connect With Us
               </span>
-              <h3 className="font-display font-700 text-xl text-foreground mb-3">
-                Scale Impact With Us
-              </h3>
-              <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
-                We collaborate with corporates, governments, institutions, and communities to
-                deliver sustainable development solutions.
-              </p>
-              <div className="flex flex-wrap gap-2">
-                {['Corporates (CSR)', 'Governments', 'Institutions', 'Communities']?.map((p) =>
-                <span key={p} className="bg-card border border-border text-foreground text-[10px] font-display font-600 px-3 py-1.5 rounded-full">
-                    {p}
-                  </span>
-                )}
-              </div>
-              <div className="mt-4">
-                <Link href="/partnerships" className="btn-primary text-sm">
-                  Partner With Us
-                  <Icon name="ArrowUpRightIcon" size={14} variant="outline" />
-                </Link>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 h-64 overflow-hidden">
+                {/* Placeholder X / Twitter Feed */}
+                <div className="bg-white rounded-xl shadow-sm border border-border overflow-hidden h-full">
+                  <div className="bg-black text-white px-4 py-2 font-display text-sm font-700 flex items-center justify-between">
+                    <span>X (Twitter)</span>
+                    <Icon name="GlobeAltIcon" size={16} variant="outline" />
+                  </div>
+                  <div className="p-4 text-xs text-muted-foreground text-center flex items-center justify-center h-full">
+                    <p>Live feed would be embedded here via standard twitter widget js.</p>
+                  </div>
+                </div>
+                {/* Placeholder LinkedIn Feed */}
+                <div className="bg-white rounded-xl shadow-sm border border-border overflow-hidden h-full">
+                  <div className="bg-[#0077b5] text-white px-4 py-2 font-display text-sm font-700 flex items-center justify-between">
+                    <span>LinkedIn</span>
+                    <Icon name="BuildingOffice2Icon" size={16} variant="outline" />
+                  </div>
+                  <div className="p-4 text-xs text-muted-foreground text-center flex items-center justify-center h-full">
+                    <p>Live feed would be embedded here via LinkedIn iframe or plugin.</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

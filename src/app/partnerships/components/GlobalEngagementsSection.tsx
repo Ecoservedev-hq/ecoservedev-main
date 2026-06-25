@@ -22,20 +22,30 @@ const corporatePartners = [
   { name: 'Flocard', type: 'Corporate Partner', icon: 'CreditCardIcon' },
   { name: 'GRAM IQ', type: 'Corporate Partner', icon: 'ChartPieIcon' },
   { name: 'Organic Affairs', type: 'Corporate Partner', icon: 'LeafIcon' },
+  { name: 'Talentella', type: 'Corporate Partner', icon: 'UserGroupIcon', url: 'https://talentella.in' },
 ];
 
-function PartnerCard({ name, type, icon }: { name: string; type: string; icon: string }) {
-  return (
-    <div className="flex items-center gap-3 bg-card border border-border rounded-xl p-4 hover:border-primary/30 hover:shadow-sm transition-all duration-200 group">
+function PartnerCard({ name, type, icon, url }: { name: string; type: string; icon: string; url?: string }) {
+  const CardContent = (
+    <div className="flex items-center gap-3 bg-card border border-border rounded-xl p-4 hover:border-primary/30 hover:shadow-sm transition-all duration-200 group h-full">
       <div className="w-10 h-10 rounded-lg bg-muted flex items-center justify-center flex-shrink-0 group-hover:bg-primary/10 transition-colors">
         <Icon name={icon as never} size={18} variant="outline" className="text-primary" />
       </div>
       <div>
         <p className="font-display font-600 text-sm text-foreground leading-tight">{name}</p>
-        <p className="text-xs text-muted-foreground font-sans mt-0.5">{type}</p>
       </div>
     </div>
   );
+
+  if (url) {
+    return (
+      <a href={url} target="_blank" rel="noopener noreferrer" className="block h-full">
+        {CardContent}
+      </a>
+    );
+  }
+
+  return CardContent;
 }
 
 export default function GlobalEngagementsSection() {
@@ -47,7 +57,7 @@ export default function GlobalEngagementsSection() {
             Global Network
           </span>
           <h2 className="font-display font-700 text-4xl md:text-5xl text-foreground tracking-tight">
-            Our Global & Institutional Partnerships
+            Our Global & Institutional Engagements
           </h2>
           <p className="text-muted-foreground text-base mt-4 max-w-xl leading-relaxed">
             EcoServeDev collaborates with leading global organisations, United Nations initiatives,

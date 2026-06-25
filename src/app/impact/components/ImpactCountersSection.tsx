@@ -93,7 +93,7 @@ export default function ImpactCountersSection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {stats.slice(0, 4).map((stat) => (
             <div key={stat.id} className="stat-card group">
               <div className="flex justify-between items-start mb-6">

@@ -46,7 +46,7 @@ export default function PartnerCTASection() {
           {/* Image right side */}
           <div className="absolute top-0 right-0 w-full md:w-3/5 h-full pointer-events-none">
             <AppImage
-              src="https://images.unsplash.com/photo-1549793648-02ea076bebdc"
+              src="/assets/images/WhatsApp Unknown 2026-06-25 at 11.35.14 PM/WhatsApp Image 2026-06-25 at 11.13.02 PM.jpeg"
               alt="Aerial view of green forest with mist, dark shadowed canopy, moody atmospheric low-key lighting"
               fill
               className="object-cover object-center opacity-50 md:opacity-70"

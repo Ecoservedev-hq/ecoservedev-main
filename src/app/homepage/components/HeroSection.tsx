@@ -10,30 +10,27 @@ export default function HeroSection() {
 
   return (
     <section
-      className="relative w-full min-h-[92vh] overflow-hidden bg-primary"
-      style={{ borderBottomLeftRadius: '100px' }}
+      className="relative w-full min-h-[100vh] overflow-hidden bg-primary"
       aria-label="Hero">
 
-      {/* Background Image */}
       <AppImage
-        src="https://images.unsplash.com/photo-1614953167872-5fdffc05440a"
-        alt="Dense forest canopy with sunlight filtering through green leaves in a tropical ecosystem, dark lush environment"
+        src="/assets/images/WhatsApp Unknown 2026-06-25 at 11.35.14 PM/WhatsApp Image 2026-06-25 at 11.12.58 PM.jpeg"
+        alt="EcoServeDev Landscape Banner"
         fill
         priority
-        className="object-cover opacity-70"
-        sizes="100vw" />
+        className="object-cover opacity-45"
+        sizes="100vw"
+      />
 
-
-      {/* Gradient Scrim — strong bottom-left for white text legibility */}
-      <div className="absolute inset-0 bg-gradient-to-tr from-primary/80 via-primary/40 to-transparent" />
-      <div className="absolute inset-0 bg-gradient-to-t from-primary/60 via-transparent to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-tr from-primary/95 via-primary/60 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/20 to-transparent" />
 
       {/* Navigation overlay clearance handled by Header */}
 
       {/* Floating Impact Card — top right */}
       {cardVisible &&
-      <div className="absolute top-24 right-6 md:right-12 bg-primary text-white p-6 md:p-7 rounded-[28px] w-68 md:w-76 shadow-2xl z-20 hidden md:block border border-white/10">
-          <div className="flex justify-between items-start mb-5">
+      <div className="absolute top-24 right-6 md:right-12 bg-primary text-white p-6 md:p-8 rounded-[24px] w-64 md:w-72 shadow-2xl z-20 hidden lg:block border border-white/10 animate-in slide-in-from-bottom-8 fade-in duration-700">
+          <div className="flex justify-between items-start mb-4">
             <h3 className="text-base font-display font-700 leading-tight">
               Impact at a Glance
             </h3>
@@ -46,15 +43,15 @@ export default function HeroSection() {
             </button>
           </div>
           <div className="space-y-3 text-sm">
-            <div className="flex items-center justify-between border-b border-white/10 pb-3">
+            <div className="flex items-center justify-between border-b border-white/10 pb-2.5">
               <span className="text-white/70 font-sans text-xs">Trees Planted</span>
               <span className="font-display font-700 text-accent">1,50,000+</span>
             </div>
-            <div className="flex items-center justify-between border-b border-white/10 pb-3">
+            <div className="flex items-center justify-between border-b border-white/10 pb-2.5">
               <span className="text-white/70 font-sans text-xs">Lives Impacted</span>
               <span className="font-display font-700 text-accent">1,500+</span>
             </div>
-            <div className="flex items-center justify-between border-b border-white/10 pb-3">
+            <div className="flex items-center justify-between border-b border-white/10 pb-2.5">
               <span className="text-white/70 font-sans text-xs">Economic Value</span>
               <span className="font-display font-700 text-accent">₹7M+</span>
             </div>
@@ -63,29 +60,29 @@ export default function HeroSection() {
               <span className="font-display font-700 text-accent">15+</span>
             </div>
           </div>
-          <div className="mt-5 flex justify-end">
+          <div className="mt-4 flex justify-end">
             <Link href="/homepage#impact" aria-label="View full impact data">
-              <Icon name="ArrowUpRightIcon" size={20} variant="outline" className="text-white" />
+              <Icon name="ArrowUpRightIcon" size={18} variant="outline" className="text-white" />
             </Link>
           </div>
         </div>
       }
 
       {/* Hero Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 flex flex-col justify-end h-full min-h-[92vh] pb-20 pt-32">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 flex flex-col justify-end h-full min-h-[100vh] pb-32 sm:pb-16 pt-32">
         {/* Eyebrow */}
-        <div className="mb-5">
-          <span className="inline-flex items-center gap-2 bg-accent/20 border border-accent/30 text-accent px-4 py-1.5 rounded-full text-xs font-display font-600 backdrop-blur-sm">
-            <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
+        <div className="mb-4">
+          <span className="inline-flex items-center gap-2 bg-accent/20 border border-accent/30 text-white px-3 py-1 md:px-4 md:py-1.5 rounded-full text-[10px] md:text-xs font-display font-600 backdrop-blur-sm">
+            <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
             Youth-Led · Innovation-Driven · Verified Impact
           </span>
         </div>
 
-        {/* Headline with text-highlight editorial treatment */}
-        <h1 className="font-display font-700 text-5xl md:text-7xl lg:text-8xl leading-[1.15] max-w-4xl mb-6">
-          <span className="text-highlight">Sustainable Solutions.</span>{' '}
-          <span className="text-highlight">Inclusive Futures.</span>{' '}
-          <span className="text-highlight">Measurable Impact.</span>
+        {/* Headline with editorial treatment */}
+        <h1 className="font-display font-700 text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.15] max-w-4xl mb-6 text-white drop-shadow-lg">
+          Sustainable Solutions. <br className="hidden md:block" />
+          Inclusive Futures. <br className="hidden md:block" />
+          Measurable Impact.
         </h1>
 
         {/* Subtext */}
@@ -96,7 +93,7 @@ export default function HeroSection() {
         </p>
 
         {/* Supporting line */}
-        <p className="text-accent/90 text-sm font-display font-600 mb-8 tracking-wide uppercase">
+        <p className="text-white text-sm font-display font-600 mb-8 tracking-wide uppercase">
           Advancing data-driven development where it matters most
         </p>
 

@@ -40,6 +40,9 @@ export default function Footer() {
             <p className="text-xs text-muted-foreground">
               HQ — Ranchi, Jharkhand, India
             </p>
+            <p className="text-xs font-500 text-muted-foreground">
+              ECOSERVEDEV@GMAIL.COM
+            </p>
           </div>
 
           {/* Right: Links */}
@@ -62,21 +65,11 @@ export default function Footer() {
             © 2026 EcoServe Development Foundation. Section 8 Non-Profit.
           </p>
           <div className="flex items-center gap-4">
-            {socialLinks.map((s) => (
-              <a
-                key={s.label}
-                href={s.href}
-                aria-label={s.label}
-                className="text-muted-foreground hover:text-primary transition-colors min-h-[44px] min-w-[44px] flex items-center justify-center"
-              >
-                <Icon name={s.icon as never} size={18} variant="outline" />
-              </a>
-            ))}
             <a
-              href="mailto:ecoservedev@gmail.com"
-              className="text-sm font-500 text-accent hover:text-primary transition-colors min-h-[44px] flex items-center"
+              href="mailto:ECOSERVEDEV@GMAIL.COM"
+              className="text-sm font-500 text-accent hover:text-primary transition-colors min-h-[44px] flex items-center uppercase"
             >
-              ecoservedev@gmail.com
+              ECOSERVEDEV@GMAIL.COM
             </a>
           </div>
         </div>

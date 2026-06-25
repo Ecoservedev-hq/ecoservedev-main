@@ -53,7 +53,7 @@ const navLinks: NavLink[] = [
   { label: 'Partnerships', href: '/partnerships' },
 ];
 
-export default function Header() {
+export default function Header({ theme = 'transparent' }: { theme?: 'transparent' | 'solid' }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeMega, setActiveMega] = useState<string | null>(null);
@@ -86,12 +86,14 @@ export default function Header() {
     megaTimeout.current = setTimeout(() => setActiveMega(null), 120);
   };
 
+  const isSolid = theme === 'solid' || scrolled;
+
   return (
     <>
       <header
         className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-          scrolled
-            ? 'bg-white/97 backdrop-blur-md border-b border-border shadow-sm'
+          isSolid
+            ? 'bg-white/95 backdrop-blur-md border-b border-border shadow-sm'
             : 'bg-transparent'
         }`}
       >
@@ -104,7 +106,7 @@ export default function Header() {
             />
             <span
               className={`font-display font-700 text-base tracking-tight hidden sm:block transition-colors duration-300 ${
-                scrolled ? 'text-primary' : 'text-white'
+                isSolid ? 'text-primary' : 'text-white'
               }`}
             >
               EcoServeDev
@@ -125,7 +127,7 @@ export default function Header() {
                   className={`flex items-center gap-1 px-3 py-2 rounded-lg text-sm font-medium font-display transition-colors duration-200 ${
                     isActive(link.href)
                       ? 'text-accent'
-                      : scrolled
+                      : isSolid
                       ? 'text-foreground hover:text-accent hover:bg-muted'
                       : 'text-white/90 hover:text-white hover:bg-white/10'
                   }`}
@@ -181,8 +183,8 @@ export default function Header() {
             <Link
               href="/partnerships"
               className={`hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-700 font-display transition-all duration-200 ${
-                scrolled
-                  ? 'bg-primary text-white hover:bg-secondary' :'bg-white text-primary hover:bg-white/90'
+                isSolid
+                  ? 'bg-primary text-white hover:bg-secondary' : 'bg-white text-primary hover:bg-white/90'
               }`}
             >
               Partner With Us
@@ -194,7 +196,7 @@ export default function Header() {
               onClick={() => setMenuOpen(!menuOpen)}
               aria-label={menuOpen ? 'Close menu' : 'Open menu'}
               className={`md:hidden p-2 rounded-lg transition-colors ${
-                scrolled ? 'text-primary hover:bg-muted' : 'text-white hover:bg-white/10'
+                isSolid ? 'text-primary hover:bg-muted' : 'text-white hover:bg-white/10'
               }`}
             >
               <Icon name={menuOpen ? 'XMarkIcon' : 'Bars3Icon'} size={22} variant="outline" />
@@ -206,7 +208,7 @@ export default function Header() {
       {/* Mobile Menu Overlay */}
       {menuOpen && (
         <div
-          className="fixed inset-0 z-40 bg-primary/97 backdrop-blur-md flex flex-col pt-20 px-6 pb-8 md:hidden overflow-y-auto"
+          className="fixed inset-0 z-40 bg-[#0A2463]/95 backdrop-blur-md flex flex-col pt-20 px-6 pb-8 md:hidden overflow-y-auto"
           onClick={() => setMenuOpen(false)}
         >
           <div className="flex flex-col gap-1" onClick={(e) => e.stopPropagation()}>
