@@ -4,35 +4,41 @@ import React from 'react';
 import Icon from '@/components/ui/AppIcon';
 
 const globalPartners = [
-  { name: 'Ocean Centres India', type: 'Global Network', icon: 'GlobeAltIcon' },
-  { name: 'UN Decade on Ecosystem Restoration', type: 'United Nations', icon: 'GlobeAmericasIcon' },
-  { name: 'World Wetland Network', type: 'Global Network', icon: 'CloudIcon' },
-  { name: 'UN Convention to Combat Desertification', type: 'United Nations', icon: 'SunIcon' },
-  { name: 'UN Biodiversity Credit Alliance', type: 'United Nations', icon: 'SparklesIcon' },
-  { name: 'Planetary Health Alliance', type: 'Global Platform', icon: 'HeartIcon' },
+  { name: 'Ocean Centres India', type: 'Global Initiative', icon: 'GlobeAltIcon', image: '/partners-logo/OIP.jpg' },
+  { name: 'UN Decade on Ecosystem Restoration', type: 'United Nations', icon: 'GlobeAsiaAustraliaIcon', image: '/partners-logo/und.jpg' },
+  { name: 'World Wetland Network', type: 'Global Network', icon: 'CloudIcon', image: '/partners-logo/wwn.webp' },
+  { name: 'UN Convention to Combat Desertification', type: 'United Nations', icon: 'SunIcon', image: '/partners-logo/unccd.jpg' },
+  { name: 'UN Biodiversity Credit Alliance', type: 'United Nations', icon: 'SparklesIcon', image: '/bcdd.jpg' },
+  { name: 'Planetary Health Alliance', type: 'Global Platform', icon: 'HeartIcon', image: '/partners-logo/pha.jpg' },
 ];
 
 const communityInstitutions = [
-  { name: 'Ghaghra Srishti FPC', type: 'Farmer Producer Company', icon: 'HomeIcon' },
-  { name: 'Ground Water & Reforestation Adaptive Management Association', type: 'Community Institution', icon: 'BuildingOfficeIcon' },
+  { name: 'Ghaghra Srishti FPC', type: 'Farmer Producer Company', icon: 'HomeIcon', image: '/partners-logo/gspl.jpeg' },
+  { name: 'Ground Water & Reforestation Adaptive Management Association', type: 'Community Institution', icon: 'BuildingOfficeIcon', image: '/partners-logo/gram.jpg' },
+  { name: 'Startup Jharkhand', type: 'Community Institution', icon: 'LightBulbIcon', image: '/partners-logo/startupjharkhand.jpeg' },
 ];
 
 const corporatePartners = [
-  { name: 'AdiRa Bicycles', type: 'Corporate Partner', icon: 'TruckIcon' },
-  { name: 'Flocard', type: 'Corporate Partner', icon: 'CreditCardIcon' },
-  { name: 'GRAM IQ', type: 'Corporate Partner', icon: 'ChartPieIcon' },
-  { name: 'Organic Affairs', type: 'Corporate Partner', icon: 'LeafIcon' },
-  { name: 'Talentella', type: 'Corporate Partner', icon: 'UserGroupIcon', url: 'https://talentella.in' },
+  { name: 'AdiRa Biocycles', type: 'Corporate Partner', icon: 'TruckIcon', image: '/partners-logo/adira_biocycle_logo.jpg' },
+  { name: 'Flocard', type: 'Corporate Partner', icon: 'CreditCardIcon', image: '/partners-logo/flocard.jpg' },
+  { name: 'GRAM IQ', type: 'Corporate Partner', icon: 'ChartPieIcon', image: '/partners-logo/gramiq.jpg' },
+  { name: 'Organic Affairs', type: 'Corporate Partner', icon: 'LeafIcon', image: '/partners-logo/organic bio.png' },
+  { name: 'Talentella', type: 'Corporate Partner', icon: 'UserGroupIcon', url: 'https://talentella.in', image: '/partners-logo/logo.jpg' },
+  { name: 'Terranova', type: 'Corporate Partner', icon: 'BriefcaseIcon', image: '/partners-logo/terranova.jpg' },
 ];
 
-function PartnerCard({ name, type, icon, url }: { name: string; type: string; icon: string; url?: string }) {
+function PartnerCard({ name, type, icon, url, image }: { name: string; type: string; icon: string; url?: string; image?: string }) {
   const CardContent = (
-    <div className="flex items-center gap-3 bg-card border border-border rounded-xl p-4 hover:border-primary/30 hover:shadow-sm transition-all duration-200 group h-full">
-      <div className="w-10 h-10 rounded-lg bg-muted flex items-center justify-center flex-shrink-0 group-hover:bg-primary/10 transition-colors">
-        <Icon name={icon as never} size={18} variant="outline" className="text-primary" />
+    <div className="flex items-center gap-4 bg-card border border-border rounded-xl p-5 hover:border-primary/30 hover:shadow-md transition-all duration-200 group h-full">
+      <div className="w-14 h-14 rounded-lg bg-white flex items-center justify-center flex-shrink-0 group-hover:bg-primary/5 transition-colors overflow-hidden border border-border/50">
+        {image ? (
+          <img src={image} alt={name} className="w-full h-full object-contain p-1.5 mix-blend-multiply" />
+        ) : (
+          <Icon name={icon as never} size={24} variant="outline" className="text-primary" />
+        )}
       </div>
       <div>
-        <p className="font-display font-600 text-sm text-foreground leading-tight">{name}</p>
+        <p className="font-display font-600 text-base text-foreground leading-tight">{name}</p>
       </div>
     </div>
   );

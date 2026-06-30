@@ -90,8 +90,9 @@ const leaders: Leader[] = [
 ];
 
 const advisors = [
-  { name: 'Khushboo Singh', domain: 'CSR Design & Implementation', initials: 'KhS', image: '/assets/images/Khushboo Singh (1) (1).jpeg' },
   { name: 'Prof. Hina Bijili', domain: 'Community Development', initials: 'HB', image: '/assets/images/Prof. Hina Bijli.png' },
+  { name: 'Col. Nirbhay Kumar (retd.)', domain: 'Strategic Advisory', initials: 'NK', image: '/Col. Nirbhay Kumar (retd.) (1).jpg' },
+  { name: 'Khushboo Singh', domain: 'CSR Design & Implementation', initials: 'KhS', image: '/assets/images/Khushboo Singh (1) (1).jpeg' },
   { name: 'Shashank Singh', domain: 'Policy & Governance', initials: 'ShS', image: '/assets/images/shahsank.jpeg' },
 ];
 
@@ -259,7 +260,7 @@ export default function LeadershipSection() {
             </span>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-4">
+          <div className="grid md:grid-cols-2 gap-6">
             {advisors?.map((advisor, i) => (
               <div
                 key={advisor?.name}
@@ -267,12 +268,12 @@ export default function LeadershipSection() {
                 style={{ transitionDelay: `${i * 80 + 600}ms` }}
               >
                 {advisor?.image ? (
-                  <div className="w-11 h-11 rounded-lg overflow-hidden flex-shrink-0">
+                  <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-xl overflow-hidden flex-shrink-0">
                     <img src={advisor.image} alt={advisor.name} className="w-full h-full object-cover" />
                   </div>
                 ) : (
-                  <div className="w-11 h-11 rounded-lg bg-primary flex items-center justify-center flex-shrink-0">
-                    <span className="font-display font-700 text-xs text-white">{advisor?.initials}</span>
+                  <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-xl bg-primary flex items-center justify-center flex-shrink-0">
+                    <span className="font-display font-700 text-xl text-white">{advisor?.initials}</span>
                   </div>
                 )}
                 <div>

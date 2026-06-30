@@ -27,7 +27,7 @@ export const articles: Article[] = [
     description: 'The future of agriculture is being shaped not just by access to technology, but by the ability to use it effectively. Across rural economies, farmers are increasingly exposed to digital tools, yet the real transformation lies in enabling them to make data driven agricultural decisions.',
     date: 'April 10, 2026',
     readTime: '8 min read',
-    image: 'https://images.unsplash.com/photo-1595805561334-0ab94b407a16',
+    image: '/WhatsApp Image 2026-04-10 at 1.23.29 PM.jpeg',
     alt: 'Farmer using technology in a field',
     tags: ['Agriculture', 'AI', 'Digital Inclusion'],
     content: [
@@ -73,7 +73,7 @@ export const articles: Article[] = [
     description: 'Rural regions across India hold immense potential in their natural landscapes and cultural heritage. Yet, many of these regions face economic stagnation, ecological degradation, and migration due to the lack of sustainable livelihood opportunities.',
     date: 'March 22, 2026',
     readTime: '7 min read',
-    image: 'https://images.unsplash.com/photo-1614953167872-5fdffc05440a',
+    image: '/valley.jpeg',
     alt: 'Impact tourism and conservation in valley',
     tags: ['Sustainable Tourism', 'Livelihoods', 'Ecosystem Preservation'],
     content: [
@@ -118,7 +118,7 @@ export const articles: Article[] = [
     description: 'Climate change, land degradation, and rural poverty are deeply interconnected challenges. Addressing them requires solutions that combine environmental restoration with economic opportunity.',
     date: 'March 5, 2026',
     readTime: '6 min read',
-    image: 'https://images.unsplash.com/photo-1518770660439-4636190af475',
+    image: '/degraded land.jpeg',
     alt: 'Agroforestry and technology tracking carbon',
     tags: ['Climate Action', 'Agroforestry', 'Blockchain'],
     content: [
@@ -163,7 +163,7 @@ export const articles: Article[] = [
     description: 'Farmer Producer Organizations are emerging as one of the most effective institutional models for transforming rural economies in India. By collectivizing small and marginal farmers, FPOs enable aggregation, improve bargaining power, and unlock access to structured markets.',
     date: 'February 14, 2026',
     readTime: '12 min read',
-    image: 'https://images.unsplash.com/photo-1585313419035-042907be0780',
+    image: '/fpo.jpeg',
     alt: 'Tribal FPO farm collectives',
     tags: ['FPO', 'Inclusive Growth', 'Market Access'],
     content: [
@@ -213,7 +213,7 @@ export const articles: Article[] = [
     description: 'Every transformative idea begins with a moment of realization. For EcoServe Development Foundation, that moment came when a group of young social entrepreneurs witnessed a recurring pattern across rural and vulnerable regions.',
     date: 'January 28, 2026',
     readTime: '10 min read',
-    image: 'https://img.rocket.new/generatedImages/rocket_gen_img_1bddc7cea-1772781545974.png',
+    image: '/vision to impact.jpeg',
     alt: 'Youth leading global sustainability platform',
     tags: ['Social Enterprise', 'SDGs', 'Youth Leadership'],
     content: [

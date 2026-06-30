@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useEffect, useRef, useState } from 'react';
+import AppImage from '@/components/ui/AppImage';
 
 export default function VisionMissionSection() {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -67,8 +68,18 @@ export default function VisionMissionSection() {
         </div>
       </div>
       {/* Vision & Mission — dark editorial panel */}
-      <div className="bg-primary py-24">
-        <div className="max-w-7xl mx-auto px-6 md:px-12">
+      <div className="relative bg-primary py-24 overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <AppImage
+            src="/assets/about.jpg"
+            alt="About background"
+            fill
+            className="object-cover opacity-30"
+            sizes="100vw"
+          />
+          <div className="absolute inset-0 bg-primary/95" />
+        </div>
+        <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12">
           <div className="flex items-center gap-3 mb-12">
             <div className="w-8 h-px bg-accent" />
             <span className="text-accent text-xs font-display font-600 uppercase tracking-[0.2em]">
@@ -91,17 +102,13 @@ export default function VisionMissionSection() {
               </div>
 
               <div className="relative z-10">
-                <div className="inline-flex items-center gap-2 bg-accent/10 border border-accent/20 text-accent px-3 py-1.5 rounded-full text-xs font-display font-600 mb-6">
-                  <span className="w-1.5 h-1.5 rounded-full bg-accent" />
+                <div className="inline-flex items-center gap-3 bg-accent/10 border border-accent/20 text-accent px-5 py-2.5 rounded-full text-sm md:text-base font-display font-600 mb-6">
+                  <span className="w-2.5 h-2.5 rounded-full bg-accent" />
                   Vision
                 </div>
-                <h3 className="font-display font-700 text-3xl md:text-4xl text-white leading-[1.2] mb-6">
+                <h3 className="font-display font-700 text-4xl md:text-5xl lg:text-6xl text-white leading-[1.1]">
                   Shaping a future driven by innovation and accountable impact
                 </h3>
-                <p className="text-white/60 text-base leading-relaxed font-sans">
-                  To shape a future where sustainable and inclusive development is driven by
-                  innovation, collaboration, and accountable impact.
-                </p>
               </div>
             </div>
 
@@ -119,22 +126,13 @@ export default function VisionMissionSection() {
               </div>
 
               <div className="relative z-10">
-                <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 text-white/70 px-3 py-1.5 rounded-full text-xs font-display font-600 mb-6">
-                  <span className="w-1.5 h-1.5 rounded-full bg-white/50" />
+                <div className="inline-flex items-center gap-3 bg-white/10 border border-white/20 text-white/90 px-5 py-2.5 rounded-full text-sm md:text-base font-display font-600 mb-6">
+                  <span className="w-2.5 h-2.5 rounded-full bg-white/80" />
                   Mission
                 </div>
-                <h3 className="font-display font-700 text-3xl md:text-4xl text-white leading-[1.2] mb-6">
+                <h3 className="font-display font-700 text-4xl md:text-5xl lg:text-6xl text-white leading-[1.1]">
                   Design, implement, and scale solutions for complex challenges
                 </h3>
-                <p className="text-white/60 text-base leading-relaxed font-sans mb-4">
-                  To design, implement, and scale solutions that address complex social and
-                  environmental challenges — integrating innovation, on-ground action, and
-                  data-driven impact systems.
-                </p>
-                <p className="text-white/40 text-sm leading-relaxed font-sans">
-                  We work at the intersection of policy, technology, and communities to enable
-                  equitable access, strengthen resilience, and drive long-term systemic change.
-                </p>
               </div>
             </div>
           </div>

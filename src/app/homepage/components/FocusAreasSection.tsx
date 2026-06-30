@@ -25,7 +25,7 @@ const focusAreas = [
   title: 'Inclusive & Equitable Development',
   description:
   'Strengthening livelihoods, enabling access to opportunities, and building community resilience in underserved regions.',
-  image: "/assets/images/WhatsApp Unknown 2026-06-25 at 11.35.14 PM/WhatsApp Image 2026-06-25 at 11.13.00 PM.jpeg",
+  image: "/assets/images/inclusive-bg.jpeg",
   alt: 'Group of diverse community members smiling together outdoors in a village setting, warm natural light',
   tags: ['Livelihoods', 'Women Empowerment', 'Rural Development'],
   iconName: 'UserGroupIcon'
@@ -81,15 +81,7 @@ export default function FocusAreasSection() {
           <div key={area.id} className="card-program group flex flex-col h-full">
               {/* Image */}
               <div className="relative aspect-video sm:aspect-[4/3] md:aspect-video overflow-hidden rounded-2xl mb-4">
-                {/* Category badge — top left */}
-                <div className="absolute top-0 left-0 bg-primary text-white px-3 py-2 z-10 rounded-br-xl">
-                  <span className="text-base font-display font-700 block leading-none">
-                    {area.category.slice(0, 3).toUpperCase()}
-                  </span>
-                  <span className="text-[8px] font-display font-600 uppercase tracking-wider opacity-70">
-                    {area.category}
-                  </span>
-                </div>
+
                 <AppImage
                 src={area.image}
                 alt={area.alt}

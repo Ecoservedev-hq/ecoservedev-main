@@ -4,18 +4,18 @@ import React from 'react';
 import Link from 'next/link';
 import AppImage from '@/components/ui/AppImage';
 import Icon from '@/components/ui/AppIcon';
+import Script from 'next/script';
 
 const perspectives = [
 {
   id: 1,
-  date: '15',
-  month: 'JAN',
-  category: 'Global Summit',
-  title: 'Breakpoint 2025, Abu Dhabi — Blockchain, Real-World Assets & Sustainability',
-  description:
-  'Kumar Shivam delivered a session on blockchain, real-world assets, and sustainability at Breakpoint 2025, Abu Dhabi — exploring how decentralised infrastructure can drive verifiable environmental impact.',
-  image: "/assets/images/WhatsApp Unknown 2026-06-25 at 11.35.14 PM/WhatsApp Image 2026-06-25 at 11.13.04 PM.jpeg",
-  alt: 'Large conference hall with dramatic stage lighting, dark auditorium with rows of attendees, deep shadows, moody atmospheric light'
+  date: '8',
+  month: 'FEB',
+  category: 'Summit',
+  title: 'Gender Equality Summit — EcoServeDev as Ecosystem Restoration Partner',
+  description: 'EcoServeDev participated in the Gender Equality Summit as an Ecosystem Restoration Partner, championing the role of inclusive community-driven approaches in global sustainability initiatives.',
+  image: "/gender.jpeg",
+  alt: 'Gender Equality Summit'
 }];
 
 
@@ -26,17 +26,17 @@ const news = [
   title: 'Impact AI Summit 2026, New Delhi — Strategic Partnership for Digital Inclusion',
   badge: 'Partnership',
   badgeDark: true,
-  image: "/assets/images/WhatsApp Unknown 2026-06-25 at 11.35.14 PM/WhatsApp Image 2026-06-25 at 11.12.59.jpeg",
-  alt: 'Conference hall with audience'
+  image: "/impact.jpg",
+  alt: 'Impact AI Summit 2026'
 },
 {
   id: 2,
-  date: 'February 8, 2026',
-  title: 'Gender Equality Summit — EcoServeDev as Ecosystem Restoration Partner',
-  badge: 'Summit',
+  date: 'January 15, 2025',
+  title: 'Breakpoint 2025, Abu Dhabi — Blockchain, Real-World Assets & Sustainability',
+  badge: 'Global Summit',
   badgeDark: false,
-  image: "/assets/images/WhatsApp Unknown 2026-06-25 at 11.35.14 PM/WhatsApp Image 2026-06-25 at 11.13.00.jpeg",
-  alt: 'Diverse panel discussion'
+  image: "/WhatsApp Image 2026-06-29 at 9.46.50 PM.jpeg",
+  alt: 'Breakpoint 2025 event photo'
 },
 {
   id: 3,
@@ -44,30 +44,28 @@ const news = [
   title: 'UN Biodiversity Credit Alliance: EcoServeDev joins global restoration network',
   badge: 'UN Affiliation',
   badgeDark: false,
-  image: "/assets/images/WhatsApp Unknown 2026-06-25 at 11.35.14 PM/WhatsApp Image 2026-06-25 at 11.13.01.jpeg",
-  alt: 'Green forest from above'
+  image: "/bcdd.jpg",
+  alt: 'Biodiversity Credit Alliance'
 }];
 
 export default function NewsSection() {
   return (
     <section id="news" className="py-20 bg-background">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
+        <div className="flex justify-between items-end mb-8 border-b border-border pb-4">
+          <h2 className="font-display font-700 text-3xl text-foreground tracking-tight">
+            Media Center
+          </h2>
+          <Link
+            href="#"
+            className="text-xs font-display font-700 border border-border rounded-full px-4 py-2 hover:bg-primary hover:text-white hover:border-primary transition-colors inline-flex items-center gap-2">
+            View All
+            <Icon name="ArrowUpRightIcon" size={12} variant="outline" />
+          </Link>
+        </div>
         <div className="grid md:grid-cols-2 gap-12">
           {/* Perspectives */}
           <div>
-            <div className="flex justify-between items-end mb-8 border-b border-border pb-4">
-              <h2 className="font-display font-700 text-3xl text-foreground tracking-tight">
-                Perspectives
-              </h2>
-              <Link
-                href="#"
-                className="text-xs font-display font-700 border border-border rounded-full px-4 py-2 hover:bg-primary hover:text-white hover:border-primary transition-colors inline-flex items-center gap-2">
-
-                View All
-                <Icon name="ArrowUpRightIcon" size={12} variant="outline" />
-              </Link>
-            </div>
-
             {perspectives?.map((item) =>
             <div
               key={item?.id}
@@ -120,25 +118,13 @@ export default function NewsSection() {
 
           {/* News */}
           <div>
-            <div className="flex justify-between items-end mb-8 border-b border-border pb-4">
-              <h2 className="font-display font-700 text-3xl text-foreground tracking-tight">
-                News & Announcements
-              </h2>
-              <Link
-                href="#"
-                className="text-xs font-display font-700 border border-border rounded-full px-4 py-2 hover:bg-primary hover:text-white hover:border-primary transition-colors inline-flex items-center gap-2">
-
-                View All
-                <Icon name="ArrowUpRightIcon" size={12} variant="outline" />
-              </Link>
-            </div>
 
             <div className="space-y-6">
               {news?.map((item) =>
               <article key={item?.id} className="group cursor-pointer flex gap-4">
                   {item.image && (
-                    <div className="w-24 h-24 flex-shrink-0 relative rounded-xl overflow-hidden">
-                      <AppImage src={item.image} alt={item.alt || ''} fill className="object-cover transition-transform duration-500 group-hover:scale-105" sizes="100px" />
+                    <div className="w-32 h-32 sm:w-40 sm:h-40 flex-shrink-0 relative rounded-xl overflow-hidden">
+                      <AppImage src={item.image} alt={item.alt || ''} fill className="object-cover transition-transform duration-500 group-hover:scale-105" sizes="(max-width: 640px) 128px, 160px" />
                     </div>
                   )}
                   <div className="flex-1">
@@ -164,31 +150,13 @@ export default function NewsSection() {
             </div>
 
             {/* Social Media Feeds Embed */}
-            <div className="mt-8 bg-muted rounded-2xl p-6 border border-border">
-              <span className="text-xs font-display font-600 text-accent uppercase tracking-widest mb-4 block">
+            <div className="mt-8 bg-muted rounded-2xl py-6 border border-border overflow-hidden max-w-[380px] mx-auto w-full">
+              <span className="text-xs font-display font-600 text-accent uppercase tracking-widest mb-4 block px-6 text-center">
                 Connect With Us
               </span>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 h-64 overflow-hidden">
-                {/* Placeholder X / Twitter Feed */}
-                <div className="bg-white rounded-xl shadow-sm border border-border overflow-hidden h-full">
-                  <div className="bg-black text-white px-4 py-2 font-display text-sm font-700 flex items-center justify-between">
-                    <span>X (Twitter)</span>
-                    <Icon name="GlobeAltIcon" size={16} variant="outline" />
-                  </div>
-                  <div className="p-4 text-xs text-muted-foreground text-center flex items-center justify-center h-full">
-                    <p>Live feed would be embedded here via standard twitter widget js.</p>
-                  </div>
-                </div>
-                {/* Placeholder LinkedIn Feed */}
-                <div className="bg-white rounded-xl shadow-sm border border-border overflow-hidden h-full">
-                  <div className="bg-[#0077b5] text-white px-4 py-2 font-display text-sm font-700 flex items-center justify-between">
-                    <span>LinkedIn</span>
-                    <Icon name="BuildingOffice2Icon" size={16} variant="outline" />
-                  </div>
-                  <div className="p-4 text-xs text-muted-foreground text-center flex items-center justify-center h-full">
-                    <p>Live feed would be embedded here via LinkedIn iframe or plugin.</p>
-                  </div>
-                </div>
+              <div className="w-full h-[350px] overflow-y-auto custom-scrollbar px-6">
+                <Script src="https://elfsightcdn.com/platform.js" strategy="lazyOnload" />
+                <div className="elfsight-app-db637d39-6d9a-4d46-815a-7247ea75230a w-full" data-elfsight-app-lazy></div>
               </div>
             </div>
           </div>

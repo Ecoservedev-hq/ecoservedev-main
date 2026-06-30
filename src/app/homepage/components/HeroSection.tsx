@@ -14,16 +14,16 @@ export default function HeroSection() {
       aria-label="Hero">
 
       <AppImage
-        src="/assets/images/WhatsApp Unknown 2026-06-25 at 11.35.14 PM/WhatsApp Image 2026-06-25 at 11.12.58 PM.jpeg"
+        src="/assets/images/hero-bg.jpeg"
         alt="EcoServeDev Landscape Banner"
         fill
         priority
-        className="object-cover opacity-45"
+        className="object-cover"
         sizes="100vw"
       />
 
-      <div className="absolute inset-0 bg-gradient-to-tr from-primary/95 via-primary/60 to-transparent" />
-      <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/20 to-transparent" />
+      <div className="absolute inset-0 bg-black/40" />
+      <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/20 to-transparent" />
 
       {/* Navigation overlay clearance handled by Header */}
 
